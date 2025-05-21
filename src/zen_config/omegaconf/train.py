@@ -2,9 +2,7 @@ import hydra
 from hydra.core.config_store import ConfigStore
 from omegaconf import DictConfig, OmegaConf
 
-from zen_config.conf import base_configs as bc
-
-
+from zen_config.omegaconf.conf import base_configs as bc
 
 OmegaConf.clear_resolvers()
 OmegaConf.register_new_resolver("sum", lambda x, y: x + y)
@@ -27,4 +25,3 @@ def main(cfg: DictConfig):
 
 if __name__ == "__main__":
     main()
-

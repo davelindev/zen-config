@@ -8,7 +8,7 @@ data:
   context_length: 5000
   batch_size: 32
   num_workers: 4
-  seed: 1234
+  seed: 1237
 model:
   vocab_size: 50000
   dim_model: 768
@@ -16,7 +16,7 @@ model:
   num_layers: 12
   dropout: 0.1
   dim_feedforward: ${multiply:${.dim_model},4}
-  context_length: ${.data.context_length}
+  context_length: ${..data.context_length}
 optimizer:
   lr: 0.001
   weight_decay: 0.0
@@ -24,11 +24,11 @@ optimizer:
   total_steps: 50000
   min_lr_ratio: 0.1
 training:
-  output_dir: ???
+  output_dir: ./output/
   max_steps: 50000
   save_every: 5000
   eval_every: 1000
-  seed: 1234
+  seed: ${..data.seed}
   precision: 16-mixed
   devices: 1
   accelerator: gpu
