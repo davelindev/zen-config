@@ -1,0 +1,10 @@
+defaults:
+  - base_optimizer
+  - _self_
+
+lr: 1e-3
+weight_decay: 0.0
+
+warmup_steps: 1000
+total_steps: 50000
+min_lr_ratio: 0.1

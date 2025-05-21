@@ -1,0 +1,35 @@
+data:
+  train_files:
+  - debug_train_data_1.csv
+  - debug_train_data_2.csv
+  val_files:
+  - debug_val_data_1.csv
+  - debug_val_data_2.csv
+  context_length: 5000
+  batch_size: 32
+  num_workers: 4
+  seed: 1234
+model:
+  vocab_size: 50000
+  dim_model: 768
+  num_heads: 12
+  num_layers: 12
+  dropout: 0.1
+  dim_feedforward: ${multiply:${.dim_model},4}
+  context_length: ${..data.context_length}
+optimizer:
+  lr: 0.001
+  weight_decay: 0.0
+  warmup_steps: 1000
+  total_steps: 50000
+  min_lr_ratio: 0.1
+training:
+  output_dir: ???
+  max_steps: 50000
+  save_every: 5000
+  eval_every: 1000
+  seed: 1234
+  precision: 16-mixed
+  devices: 1
+  accelerator: gpu
+experiment_name: str = "default"

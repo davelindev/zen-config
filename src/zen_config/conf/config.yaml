@@ -1,0 +1,21 @@
+defaults:
+  - data: debug 
+  - model: large
+  - optimizer: adam 
+  - training: base_training
+  - _self_
+
+
+data: 
+  context_length: 5000
+  seed: 1237
+
+model:
+  context_length: ${..data.context_length}
+
+
+training:
+  output_dir: "./output/"
+  seed: ${..data.seed}
+
+experiment_name: str = "default"
