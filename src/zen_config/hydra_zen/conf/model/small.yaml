@@ -1,0 +1,8 @@
+# This is optional with hydra_zen since we defined this in config_store.py
+_target_: zen_config.hydra_zen.conf.config_schemas.ModelConfig
+vocab_size: 10000
+dim_model: 256
+num_heads: 4
+num_layers: 4
+dropout: 0.1
+dim_feedforward: ${multiply:${.dim_model},4}

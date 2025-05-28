@@ -1,0 +1,12 @@
+# This is optional with hydra_zen since we defined this in config_store.py
+_target_: zen_config.hydra_zen.conf.config_schemas.DataConfig
+train_files:
+  - debug_train_data_1.csv
+  - debug_train_data_2.csv
+val_files:
+  - debug_val_data_1.csv
+  - debug_val_data_2.csv
+context_length: 10_000
+batch_size: 32
+num_workers: 4
+seed: 1234

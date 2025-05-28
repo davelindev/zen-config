@@ -1,0 +1,7 @@
+# This is optional with hydra_zen since we defined this in config_store.py
+_target_: zen_config.hydra_zen.conf.config_schemas.OptimizerConfig
+lr: 0.001
+weight_decay: 0.0
+warmup_steps: 1000
+total_steps: 50000
+min_lr_ratio: 0.1

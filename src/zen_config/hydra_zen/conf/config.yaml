@@ -1,8 +1,9 @@
+# Main config file - this is optional with hydra_zen 
+# since we defined this in config_store.py
 defaults:
-  - data: debug 
+  - data: debug
   - model: large
-  - optimizer: adam 
-  - training: base_training
+  - optimizer: adam
   - _self_
   - override hydra/job_logging: stdout # This prevents automatically creating empty train.log file, but still can print logs to console
 
@@ -11,16 +12,16 @@ hydra:
   run:
     dir: .
 
-data: 
+data:
   context_length: 5000
   seed: 1237
 
 model:
+  # num_heads: 11
   context_length: ${..data.context_length}
 
-
 training:
-  output_dir: "./output/"
+  output_dir: ./output/
   seed: ${..data.seed}
 
-experiment_name: str = "default"
+experiment_name: default
